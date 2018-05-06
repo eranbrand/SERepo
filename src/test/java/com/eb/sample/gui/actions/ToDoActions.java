@@ -1,8 +1,9 @@
-package com.eb.sample.actions;
+package com.eb.sample.gui.actions;
 
-import com.eb.sample.pages.ToDoPage;
+import com.eb.sample.gui.pages.ToDoPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 public class ToDoActions {
     ToDoPage page;
@@ -41,6 +42,21 @@ public class ToDoActions {
     public String getNthTodoText(int n){
         return page.getDrv().findElement(By.cssSelector("body > section > div > section > ul > li:nth-child(" + n + ") > div > label")).getText();
     }
+
+    public void toggleNthCheckBx(int n) {
+        WebElement checkBx = page.getNthCheckBx(n);
+        checkBx.click();
+    }
+
+    public boolean isCheckBxChecked(int n){
+        WebElement checkBx = page.getNthCheckBx(n);
+        return checkBx.isSelected();
+    }
+
+//    public void deleteNthTodo(int n){
+//        WebElement deleteBtn = page.getNthDeleteBtn(n);
+//        deleteBtn.click();
+//    }
 
     public void closePage(){
         page.getDrv().close();

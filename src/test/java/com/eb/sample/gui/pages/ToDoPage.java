@@ -1,4 +1,4 @@
-package com.eb.sample.pages;
+package com.eb.sample.gui.pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -41,6 +41,14 @@ public class ToDoPage {
         waitUntilAvaiable(firstTodo);
         return firstTodo;
     }
+
+
+    public WebElement getNthCheckBx(int n) {
+        WebElement nthCheckBx = drv.findElement(By.cssSelector("body > section > div > section > ul > li:nth-child(" + n + ") > div > input"));
+        waitUntilAvaiable(nthCheckBx);
+        return nthCheckBx;
+    }
+
 
     protected void waitUntilAvaiable(final WebElement element) {
         WebDriverWait wait = new WebDriverWait(drv,10);

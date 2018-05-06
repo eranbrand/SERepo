@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class APITests {
+public class APITest {
 
     private static Joke joke;
 

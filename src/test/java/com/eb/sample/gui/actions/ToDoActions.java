@@ -18,11 +18,6 @@ public class ToDoActions {
 
 
     public void loadPage() throws InterruptedException {
-        String webDriverType = "webdriver.chrome.driver";
-        String webDriverPath = "/Users/eranbrand/Downloads/chromedriver";
-
-        System.setProperty(webDriverType, webDriverPath);
-
         page.getDrv().get("http://todomvc.com/examples/react/#/");
         Thread.sleep(500);
     }

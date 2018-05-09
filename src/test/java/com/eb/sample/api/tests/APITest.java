@@ -3,13 +3,19 @@ package com.eb.sample.api.tests;
 import com.eb.sample.api.Joke;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 
 import java.io.IOException;
 
+@DisplayName("APITest")
 public class APITest {
 
     private static Joke joke;
@@ -24,7 +30,9 @@ public class APITest {
         joke.shutdown();
     }
 
-
+    @Step
+    @Feature("Some feature")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void getRandomJoke() throws UnirestException {
         String randomJoke01 = joke.getRandomJoke();
@@ -36,6 +44,9 @@ public class APITest {
         Assert.assertNotSame("Both random jokes are the same.", randomJoke01, randomJoke02);
     }
 
+    @Step
+    @Feature("Some feature")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void getJokeById() throws UnirestException {
         String jokeById01 = joke.getJokeById("R7UfaahVfFd");

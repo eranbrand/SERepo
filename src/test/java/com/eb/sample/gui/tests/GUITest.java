@@ -5,13 +5,19 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import com.eb.sample.gui.actions.ToDoActions;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@DisplayName("GUITest")
 public class GUITest
 {
 
@@ -30,7 +36,9 @@ public class GUITest
     }
 
 
-
+    @Step
+    @Feature("Some feature")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void test01checkPlaceHolder() throws InterruptedException {
         String placeHolder = actions.getPlaceHolderText();
@@ -38,6 +46,9 @@ public class GUITest
         System.out.println(placeHolder);
     }
 
+    @Step
+    @Feature("Some feature")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void test02addASingleTodo() throws InterruptedException {
         String str = "Get almonds";
@@ -46,6 +57,9 @@ public class GUITest
         assertEquals("The todo item text is not as entered", str, txt);
     }
 
+    @Step
+    @Feature("Some feature")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void test03addMultipleTodos() throws InterruptedException {
         String str01 = "Get bananas";
@@ -62,6 +76,9 @@ public class GUITest
         assertEquals("The 4th todo item text is not as entered", str03, txt03);
     }
 
+    @Step
+    @Feature("Some feature")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void test04addSpecialTextTodos() throws InterruptedException {
         actions.createTask("לקנות אוכל");
@@ -71,6 +88,9 @@ public class GUITest
         actions.createTask("אחרון");
     }
 
+    @Step
+    @Feature("Some feature")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void test05toggleCheckBox() throws InterruptedException {
         actions.toggleNthCheckBx(4);
